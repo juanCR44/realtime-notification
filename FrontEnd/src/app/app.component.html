@@ -1,0 +1,57 @@
+<body *ngIf = "isHomeRoute()">
+  <div class = "general-navbar">
+      <div class = "icon-logo" routerLink = "/">
+          <h3 style="user-select: none">BCP</h3>
+       </div>
+      <div class = "menu-wrap">
+          <div class = "item-section">
+              <div class = "cliente-section">
+                  <span class = "title-section">Cliente</span>
+               </div>
+               <div class = "operacion-section">
+                   <span class = "title-section">Operación</span>
+               </div>
+          </div>
+      </div>
+        <div class="custom-control custom-switch" style="user-select: none">
+        <input type="checkbox" class="custom-control-input" id="customSwitch1" (click) = "toggleNotif()" [(ngModel)]="checkBoxValue">
+        <label class="custom-control-label" for="customSwitch1">Habilitar notificaciones</label>
+      </div>
+      
+      <div class = "item-nav">
+          <li class = "cliente-item">    
+              <span>CLIENTE</span>
+              <ul>
+                  <a href = "">Perfil</a>
+              </ul>
+              <ul>
+                  <a href = "">Lista notificaciones</a>
+              </ul>
+          </li>
+          <li class = "operacion-item">
+              <span>OPERACIÓN</span>
+              <ul>
+                  <a class = "popup-trigger" (click) = "connectNewNotif()">Hacer deposito</a>
+              </ul>
+          </li>
+      </div>
+  </div>
+  <div class = "overlay">
+      <div class = "popup-search">
+          <span class="icon-cross" (click) = "disconnectNewNotif()"></span>
+          <div class = "popup-content">
+              <form (ngSubmit) = "nuevaNotificacion()">
+                  <span>Ingrese el ID</span>
+                  <input type="text" placeholder="ID" id = "codigoRemitente" [(ngModel)] = "codigoRemitente" name ="codigoRemitente">
+                  <span>Ingrese el monto</span>
+                  <input type="text" placeholder="Monto" id = "monto" [(ngModel)] = "monto" name ="monto">
+                  <button type = "submit" class = "btn-buscar">
+                      Aceptar
+                  </button>
+              </form>
+          </div>
+      </div>
+  </div>
+</body>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,27 @@
+<body>
+    <span class="icon-bell" ></span>
+    <div class="notif-box">
+        <h2>Notificaciones <span class= "size-notif">{{account.notification.length}}</span><div class="msj-visto" (click) = "filtrarVisto()">Vistos</div>
+            <div class = "msj-novisto" (click) = "filtrarNoVisto()">No vistos</div><span class="icon-cross" (click) = "filtrarTodos()"></span></h2>
+          <div *ngFor="let p of notifications;let index = index; let lastcall = last">
+            <div class="notif-item" (click) = "updateVisto(p)">
+                <span *ngIf = "!p.visto" class = "color-rojo"><span class="dot"></span></span>
+                <span *ngIf = "p.visto" class = "color-gris"><span class="dot"></span></span>
+                <div class = "notif-content">
+                    <h4>{{p.tipo}}</h4>
+                    <p>{{p.contenido}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+   <!-- <div class="control-manager">
+        <div class="filtrado-manager">
+            <span class="icon-equalizer"></span>
+            <h2>FILTRAR</h2>
+        </div>
+        <div class="filtrado-option">
+            <span>Promociones</span>
+            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+        </div>
+    </div>-->
+</body>
