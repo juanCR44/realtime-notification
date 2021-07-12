@@ -1,3 +1,3 @@
 # realtime-notification
 
-Realtime notification Angular/SpringBoot/docker with websockets and microservices. 
+Realtime notification Angular/SpringBoot/Docker with websockets and microservices. 
